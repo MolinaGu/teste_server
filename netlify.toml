@@ -1,0 +1,3 @@
+[build]
+  command = "npm install"  # Se você tem um processo de construção
+  publish = "."  # Diretório de implantação, no seu caso, é o diretório atual
