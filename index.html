@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Escola server</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="formenter">
+        <label for="login">Login</label>
+        <input type="text" class="inpt" id="login" placeholder="Login">
+        <label for="senha">Senha</label>
+        <input type="text" class="inpt" id="senha" placeholder="Senha">
+        <a href="#" class="bt1" id="enterbt">Entrar</a>
+    </div>
+    <img id="image" src="#" alt="Imagem">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const socket = io();
+        socket.on('image', (data) => {
+            // Atualiza o src da imagem com os dados recebidos
+            document.getElementById('image').src = 'data:image/png;base64,' + data.buffer;
+        });
+    </script>
+</body>
+</html>
